@@ -1,15 +1,15 @@
-const express  =  require('express');
-const routes = require('./routes');
+import express, { urlencoded, json } from 'express';
+import routes from './routes';
 const app = express();
 
 const PORT =  process.env.PORT || 5000;
 
 // DB CONNECTION
-require('./models');
+import './models';
 
-// BODY PARSER FRO AJAX REQUESTS
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+// BODY PARSER FOR AJAX REQUESTS
+app.use(urlencoded({extended:true}));
+app.use(json());
 
 app.use(routes);
 
